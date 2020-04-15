@@ -9,17 +9,31 @@
 
 function vowels(str) {
     //my solution
-    let vowels = 0;
-    for(let char of str.toLowerCase()) {
-        if(char === 'a' ||
-            char === 'e' ||
-            char === 'i' ||
-            char === 'o' ||
-            char === 'u'){
-                vowels += 1
-            }
-    }
-    return vowels;
+    // let vowels = 0;
+    // for(let char of str.toLowerCase()) {
+    //     if(char === 'a' ||
+    //         char === 'e' ||
+    //         char === 'i' ||
+    //         char === 'o' ||
+    //         char === 'u'){
+    //             vowels += 1
+    //         }
+    // }
+    // return vowels;
+
+    //solution 1
+    // let count = 0
+    // const checker = 'aeiou'
+    // for(let char of str.toLowerCase()){
+    //     if(checker.includes(char)){
+    //         count++
+    //     }
+    // }
+    // return count;
+
+    //solution 2 
+    const matches = str.match(/[aeiou]/gi);
+    return matches ? matches.length : 0
 }
 
 module.exports = vowels;
