@@ -17,18 +17,20 @@ function memoize(fn){
 
         const result = fn.apply(this, args)
         cache[args] = result;
+
+        return result
     }
 }
 
-function fib(n) {
+function slowFib(n) {
    //my solution iterative
-    const result = [0,1];
-    for(let i=0;i<=n;i++){
-      if(i>=2){
-          result.push(result[i-1]+result[i-2])
-      }
-    }
-   return result[n]
+//     const result = [0,1];
+//     for(let i=0;i<=n;i++){
+//       if(i>=2){
+//           result.push(result[i-1]+result[i-2])
+//       }
+//     }
+//    return result[n]
 
     //solution 2 recursive [it has a exponential runtime] 
     // if(n<2){
@@ -38,8 +40,13 @@ function fib(n) {
     // return fib(n-1) + fib(n-2)
     
     //improving solution 2 by using memoization
- 
+      if(n<2){
+        return n
+    }
 
+    return fib(n-1) + fib(n-2)
 }
+
+fib = memoize(slowFib)
 
 module.exports = fib;
