@@ -8,6 +8,22 @@
 // Example:
 //   fib(4) === 3
 
-function fib(n) {}
+function fib(n) {
+   //my solution / iterative
+//     const result = [0,1];
+//     for(let i=0;i<=n;i++){
+//       if(i>=2){
+//           result.push(result[i-1]+result[i-2])
+//       }
+//     }
+//    return result[n]
+
+    //solution 2 recursive
+    if(n<2){
+        return n
+    }
+
+    return fib(n-1) + fib(n-2)
+}
 
 module.exports = fib;
